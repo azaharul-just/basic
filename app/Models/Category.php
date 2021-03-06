@@ -16,9 +16,10 @@ class Category extends Model
 
     //This is used for user relations with categories for name display
     
-    // public function user(){
-    //     return $this->hasOne(User::class, 'id','user_id');
-    // }
+    //Join table users and categories
+    public function user(){
+        return $this->hasOne(User::class, 'id','user_id');
+    }
 
     
 }

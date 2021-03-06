@@ -51,7 +51,7 @@
                                 </td> 
                                 <td>  
                                     <a href="{{url('category/edit/'.$category->id)}}" class="btn btn-info">Edit</a>
-                                    <a href=" " class="btn btn-danger">Delete</a>
+                                    <a href="{{url('softdelete/category/'.$category->id)}}" class="btn btn-danger">Delete</a>
                                 </td>
                               </tr>
                                @endforeach 
@@ -83,6 +83,68 @@
                 </div>
                 
             </div>
+
+            {{-- Trash Part --}}
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        @if (session('delete'))
+                             
+                             <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{session('success')}}</strong>
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> 
+                              </div>
+                        @endif 
+                        <div class="card-header"> All Trash Category </div>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Sl No</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Created At</th> 
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    //$i=1
+                                @endphp
+                               @foreach ($trachCat as $category)
+                               <tr>
+                                   {{-- For pagination: $categories->firstItem()+$loop->index --}}
+                                <th scope="row">{{$trachCat->firstItem()+$loop->index}}</th>
+                                <td>{{$category->category_name}} </td>
+                                <td>{{$category->user->name}} </td>
+                                <td>
+                                    @if ($category->created_at == NULL)
+                                        <span class="text-danger">No Time</span>
+                                    @else
+                                        {{-- Use for eloquent: $category->created_at->diffForHumans() or use below for query builder--}}
+                                        {{Carbon\Carbon::parse($category->created_at)->diffForHumans()}}
+                                    @endif
+                                    
+                                </td> 
+                                <td>  
+                                    <a href="{{url('category/edit/'.$category->id)}}" class="btn btn-info">Edit</a>
+                                    <a href=" " class="btn btn-danger">Delete</a>
+                                </td>
+                              </tr>
+                               @endforeach 
+                            </tbody>
+                          </table>
+                          {{$trachCat->links()}} 
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    
+                </div>
+                
+            </div>
+
          </div>
     </div>
 </x-app-layout>

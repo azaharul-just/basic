@@ -38,7 +38,7 @@
                                    {{-- For pagination: $categories->firstItem()+$loop->index --}}
                                 <th scope="row">{{$categories->firstItem()+$loop->index}}</th>
                                 <td>{{$category->category_name}} </td>
-                                <td>{{$category->user_id}} </td>
+                                <td>{{$category->user->name}} </td>
                                 <td>
                                     @if ($category->created_at == NULL)
                                         <span class="text-danger">No Time</span>
@@ -52,7 +52,7 @@
                                @endforeach 
                             </tbody>
                           </table>
-                          {{$categories->links()}}
+                          {{$categories->links()}} 
                     </div>
                 </div> 
                 <div class="col-md-4">

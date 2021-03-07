@@ -81,9 +81,17 @@ class BrandController extends Controller
                 'created_at'=>Carbon::now(),
             ]);
             return Redirect()->route('all.brand')->with('success','Brand Updated Without Image Successfully');
-        } 
-        
+        }  
 
+    }
+
+    public function Delete($id){
+        $brands = Brand::find($id);
+        $delete_image = $brands->brand_image;
+        unlink($delete_image);
+
+        Brand::find($id)->delete();
+        return Redirect()->back()->with('success','Brand Deleted Successfully');
     }
 
 

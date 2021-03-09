@@ -62,8 +62,6 @@ Route::get('/multi/image/', [BrandController::class, 'Multpic'])->name('multi.im
 Route::post('/multiimage/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
 
-
-
 //Automatically created it authentication 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -72,3 +70,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     
     return view('admin.index');
 })->name('dashboard');
+
+
+//Logout 
+Route::get('/user/logout/', [BrandController::class, 'Logout'])->name('user.logout');

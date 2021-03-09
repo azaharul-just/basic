@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
+
+    //Middleware Checking User loged in or not, it will be used all controller for checking authentication
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function AllCat(){
         //$categories = Category::latest()->get(); //Elequent: all data from category model table
         

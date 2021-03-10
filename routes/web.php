@@ -63,10 +63,19 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 Route::get('/multi/image/', [BrandController::class, 'Multpic'])->name('multi.image');
 Route::post('/multiimage/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
-//Home Controller 
+//Home Controller
+//Slider Part 
 Route::get('/home/slider/', [HomeController::class, 'HomeSlider'])->name('home.slider');
 Route::get('/add/slider/', [HomeController::class, 'AddSlider'])->name('add.slider');
 Route::post('/store/slider/', [HomeController::class, 'StoreSlider'])->name('store.slider');
+Route::get('/slider/edit/{id}', [HomeController::class, 'EditSlider']);
+Route::post('/slider/update/{id}', [HomeController::class, 'UpdateSlider']);
+Route::get('/slider/delete/{id}', [HomeController::class, 'DeleteSlider']);
+
+
+
+
+
 
 
 

@@ -13,7 +13,9 @@
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Slider Title</label>
                                 <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
-                                 
+                                @error('title')
+                                    <span class="text-danger">{{$message}}</span>
+                                 @enderror
                             </div>
                              
                             <div class="form-group">
@@ -21,11 +23,19 @@
                                 <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" >
 
                                 </textarea>
+                                     @error('description')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Slider Image</label>
                                 <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                                
+                                    @error('image')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+
                             </div>
                             
                             <div class="form-footer pt-4 pt-5 mt-4 border-top">

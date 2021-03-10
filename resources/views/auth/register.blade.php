@@ -67,16 +67,34 @@
                     @csrf
                     <div class="row">
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" name="name" :value="old('name')" required autofocus autocomplete="name" id="name" aria-describedby="nameHelp" placeholder="Name">
+                        <input type="text" class="form-control input-lg" name="name" :value="old('name')" autofocus autocomplete="name" id="name" aria-describedby="nameHelp" placeholder="Name">
+                      
+                          @error('name')
+                            <span class="text-danger">{{$message}}</span>
+                          @enderror
                       </div>
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" name="email" :value="old('email')" required class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Email">
+                        <input type="email" name="email" :value="old('email')" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Email">
+                      
+                          @error('email')
+                           <span class="text-danger">{{$message}}</span>
+                           @enderror
+                      
                       </div>
                       <div class="form-group col-md-12 ">
-                        <input type="password" name="password" required autocomplete="new-password" class="form-control input-lg" id="password" placeholder="Password">
+                        <input type="password" name="password" autocomplete="new-password" class="form-control input-lg" id="password" placeholder="Password">
+                        
+                        @error('password')
+                          <span class="text-danger">{{$message}}</span>
+                        @enderror
+                        
                       </div>
                       <div class="form-group col-md-12 ">
-                        <input type="password" name="password_confirmation" required autocomplete="new-password" class="form-control input-lg" id="cpassword" placeholder="Confirm Password">
+                        <input type="password" name="password_confirmation" autocomplete="new-password" class="form-control input-lg" id="cpassword" placeholder="Confirm Password">
+                         
+                        @error('password_confirmation')
+                          <span class="text-danger">{{$message}}</span> 
+                        @enderror
                       </div>
                       <div class="col-md-12">
                         <div class="d-inline-block mr-3">

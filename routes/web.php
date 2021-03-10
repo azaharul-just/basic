@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -72,12 +73,14 @@ Route::get('/slider/edit/{id}', [HomeController::class, 'EditSlider']);
 Route::post('/slider/update/{id}', [HomeController::class, 'UpdateSlider']);
 Route::get('/slider/delete/{id}', [HomeController::class, 'DeleteSlider']);
 
-
-
-
-
-
-
+//About
+//AboutController
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/store/about/', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
+Route::post('/update/about/{id}', [AboutController::class, 'UpdateAbout']);
 
 
 //Automatically created it authentication 

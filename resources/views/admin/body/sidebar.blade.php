@@ -47,8 +47,15 @@
                         </a>
                       </li> 
                       <li  class="active" >
+                        <a class="sidenav-item-link" href="{{route('home.about')}}">
+                          <span class="nav-text">Home About</span>
+                          
+                        </a>
+                      </li> 
+          
+                      <li  class="active" >
                         <a class="sidenav-item-link" href="{{route('all.brand')}}">
-                          <span class="nav-text"> Brand</span>
+                          <span class="nav-text">Home Brand</span>
                           
                         </a>
                       </li> 

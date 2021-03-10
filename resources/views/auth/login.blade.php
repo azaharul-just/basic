@@ -75,7 +75,7 @@
                 <div class="row">
 
                   <div class="form-group col-md-12 mb-4">
-                    <input type="email" name="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Email"  required autofocus>
+                    <input type="email" name="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Email" autofocus>
                     
                     @error('email')
                       <span class="text-danger">{{$message}}</span>
@@ -84,7 +84,7 @@
                   </div>
 
                   <div class="form-group col-md-12 ">
-                    <input type="password" name="password" required autocomplete="current-password" class="form-control input-lg" id="password" placeholder="Password">
+                    <input type="password" name="password" autocomplete="current-password" class="form-control input-lg" id="password" placeholder="Password">
                     
                     @error('password')
                      <span class="text-danger">{{$message}}</span>

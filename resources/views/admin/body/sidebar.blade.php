@@ -39,22 +39,28 @@
               </a>
               <ul  class="collapse show"  id="dashboard"
                 data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  
-                  
-                    
+                <div class="sub-menu"> 
+
                       <li  class="active" >
                         <a class="sidenav-item-link" href="index.html">
                           <span class="nav-text">Ecommerce</span>
                           
                         </a>
-                      </li>
-                    
-                  
+                      </li> 
+                      <li  class="active" >
+                        <a class="sidenav-item-link" href="index.html">
+                          <span class="nav-text">Home About</span>
+                          
+                        </a>
+                      </li> 
+                      <li  class="active" >
+                        <a class="sidenav-item-link" href="{{route('all.brand')}}">
+                          <span class="nav-text">Home Brand</span>
+                          
+                        </a>
+                      </li> 
 
-                  
-                  
-                    
+
                       <li >
                         <a class="sidenav-item-link" href="analytics.html">
                           <span class="nav-text">Analytics</span>
@@ -63,10 +69,7 @@
                           
                         </a>
                       </li>
-                    
-                  
-
-                  
+                     
                 </div>
               </ul>
             </li>

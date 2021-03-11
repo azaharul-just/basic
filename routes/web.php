@@ -90,6 +90,16 @@ Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio
 
 
 
+//Contact Route Operation
+//Admin Contact Pages 
+Route::get('/Admin/Contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/Add/Contact', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::post('/Store/Contact', [ContactController::class, 'StoreContact'])->name('store.contact');
+Route::get('/Admin/Contact/Message', [ContactController::class, 'AdminContactMessage'])->name('admin.contact.message');
+Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage']);
+//User Pages contact
+Route::get('/Contact', [ContactController::class, 'Contact'])->name('contact');
+Route::post('/Contact/Form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
 
 

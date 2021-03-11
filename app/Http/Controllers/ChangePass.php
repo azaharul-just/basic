@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Hash;
 
 class ChangePass extends Controller
 {
+
+    //Middleware Checking User loged in or not, it will be used all controller for checking authentication
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function CPassword(){
         return view('admin.body.change_password');
     }
@@ -36,5 +42,30 @@ class ChangePass extends Controller
         }
 
 
+    }
+
+
+    public function UpdateProfile(){
+
+        if (Auth::user()) {
+            $user = User::find(Auth::user()->id);
+            if ($user) {
+                return view('admin.body.update_profile',compact('user'));
+            }
+        } 
+    }
+
+    public function UpdateUserProfile(Request $request){
+         
+        $user = User::find(Auth::user()->id);
+        if ($user) {
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save() ;
+            return redirect()->back()->with('success','Update Profile Successfully');
+        }else{
+            return redirect()->back()->with('success','Not Update Profile.');
+        }
+         
     }
 }

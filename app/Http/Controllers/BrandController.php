@@ -51,7 +51,12 @@ class BrandController extends Controller
             'created_at'=>Carbon::now(),
         ]);
 
-        return Redirect()->back()->with('success','Brand Added Successfully');
+        $notification = array(
+            'message'=>'Brand Added Successfully',
+            'alert-type'=>'success'
+        );
+
+        return Redirect()->back()->with($notification);
 
 
     }
@@ -88,13 +93,29 @@ class BrandController extends Controller
                 'brand_image'=>$last_img,
                 'created_at'=>Carbon::now(),
             ]);
-            return Redirect()->route('all.brand')->with('success','Brand Updated With Image Successfully');
+
+            $notification = array(
+                'message'=>'Brand Updated With Image Successfully',
+                'alert-type'=>'success'
+            );
+    
+            return Redirect()->route('all.brand')->with($notification);
+
+            //return Redirect()->route('all.brand')->with('success','Brand Updated With Image Successfully');
         }else{
             Brand::find($id)->update([
                 'brand_name'=>$request->brand_name,
                 'created_at'=>Carbon::now(),
             ]);
-            return Redirect()->route('all.brand')->with('success','Brand Updated Without Image Successfully');
+
+            $notification = array(
+                'message'=>'Brand Updated Without Image Successfully',
+                'alert-type'=>'success'
+            );
+    
+            return Redirect()->route('all.brand')->with($notification);
+
+            //return Redirect()->route('all.brand')->with('success','Brand Updated Without Image Successfully');
         }  
 
     }
@@ -105,7 +126,13 @@ class BrandController extends Controller
         unlink($delete_image);
 
         Brand::find($id)->delete();
-        return Redirect()->back()->with('success','Brand Deleted Successfully');
+        $notification = array(
+            'message'=>'Brand Deleted Successfully',
+            'alert-type'=>'error'
+        );
+
+        return Redirect()->back()->with($notification);
+         
     }
 
 
@@ -145,7 +172,13 @@ class BrandController extends Controller
     //Logout 
     public function Logout(){
         Auth::logout();
-        return Redirect()->route('login')->with('success','Logout Successfully');
+        $notification = array(
+            'message'=>'Logout Successfully',
+            'alert-type'=>'success'
+        );
+
+        return Redirect()->route('login')->with($notification);
+         
 
     }
 

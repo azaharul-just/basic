@@ -12,7 +12,7 @@
 
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">About Title</label>
-                                <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
+                                <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder=" ">
                                 @error('title')
                                     <span class="text-danger">{{$message}}</span>
                                  @enderror

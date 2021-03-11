@@ -8,6 +8,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Models\User;
+use App\Models\Multipic;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +31,8 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     $brands = DB::table('brands')->get(); 
     $abouts = DB::table('home_abouts')->latest()->first();
-    return view('home',compact('brands','abouts'));
+    $images = Multipic::latest()->paginate(3);
+    return view('home',compact('brands','abouts','images'));
 });
 
 Route::get('/home', function () {
@@ -82,6 +84,13 @@ Route::post('/store/about/', [AboutController::class, 'StoreAbout'])->name('stor
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
 Route::post('/update/about/{id}', [AboutController::class, 'UpdateAbout']);
+
+//Portfolio Part
+Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
+
+
+
 
 
 //Automatically created it authentication 

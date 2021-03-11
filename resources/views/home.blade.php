@@ -1,5 +1,10 @@
 @extends('layouts.master_home') 
 
+ <!-- ======= Hero Section ======= -->
+ @include('layouts.body.slider')
+ <!-- End Hero -->
+
+
 @section('home_content')
         <!-- ======= About Us Section ======= -->
         <section id="about-us" class="about-us">
@@ -137,16 +142,20 @@
               </div>
       
               <div class="row portfolio-container" data-aos="fade-up">
-      
+
+                @foreach ($images as $image)
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                  <img src="{{ asset('fontend/assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt="">
+                  <img src="{{ $image->image }}" class="img-fluid" alt="">
                   <div class="portfolio-info">
                     <h4>App 1</h4>
                     <p>App</p>
-                    <a href="{{ asset('fontend/assets/img/portfolio/portfolio-1.jpg') }}" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="{{ $image->image }}" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
+                @endforeach
+      
+                
       
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                   <img src="{{ asset('fontend/assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt="">

@@ -52,6 +52,13 @@
                           
                         </a>
                       </li> 
+
+                      <li  class="active" >
+                        <a class="sidenav-item-link" href="{{route('multi.image')}}">
+                          <span class="nav-text">Home Profolio</span>
+                          
+                        </a>
+                      </li> 
           
                       <li  class="active" >
                         <a class="sidenav-item-link" href="{{route('all.brand')}}">
